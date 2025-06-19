@@ -1,6 +1,7 @@
 package fr.kayrouge.thelab.entity;
 
 import fr.kayrouge.thelab.TheLab;
+import fr.kayrouge.thelab.entity.triggerzone.TriggerZoneEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
