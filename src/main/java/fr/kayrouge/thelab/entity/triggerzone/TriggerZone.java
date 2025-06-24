@@ -5,22 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Setter
 @Getter
-public class TriggerZoneEntity extends Entity {
+public class TriggerZone extends Entity {
 
     private double zoneXSize = 2;
     private double zoneYSize = 2;
@@ -31,11 +28,11 @@ public class TriggerZoneEntity extends Entity {
 
     private int tickCounter = 0;
 
-    public TriggerZoneEntity(EntityType<?> entityType, Level level) {
+    public TriggerZone(EntityType<?> entityType, Level level) {
         this(entityType, level, 2, 2, 1);
     }
 
-    public TriggerZoneEntity(EntityType<?> entityType, Level level, double xSize, double ySize, double zSize) {
+    public TriggerZone(EntityType<?> entityType, Level level, double xSize, double ySize, double zSize) {
         super(entityType, level);
         this.zoneXSize = xSize;
         this.zoneYSize = ySize;
@@ -47,25 +44,21 @@ public class TriggerZoneEntity extends Entity {
 
     }
 
-    @Override
-    public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
-        return false;
-    }
 
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
-        this.zoneXSize = tag.getDoubleOr("xSize", 2);
-        this.zoneYSize = tag.getDoubleOr("ySize", 2);
-        this.zoneXSize = tag.getDoubleOr("zSize", 1);
+        this.zoneXSize = tag.getDouble("xSize");
+        this.zoneYSize = tag.getDouble("ySize");
+        this.zoneXSize = tag.getDouble("zSize");
 
-        this.script = tag.getStringOr("script", "");
-        this.isScriptCommand = tag.getBooleanOr("isCommand", true);
+        this.script = tag.getString("script");
+        this.isScriptCommand = tag.getBoolean("isCommand");
 
-        this.updateDelay = tag.getIntOr("updateDelay", 5);
+        this.updateDelay = tag.getInt("updateDelay");
     }
-
     @Override
-    protected @NotNull AABB makeBoundingBox(Vec3 position) {
+    protected AABB makeBoundingBox() {
+        Vec3 position = position();
         return new AABB(position.x, position.y, position.z, position.x+this.zoneXSize, position.y+this.zoneYSize, position.z+this.zoneZSize);
     }
 

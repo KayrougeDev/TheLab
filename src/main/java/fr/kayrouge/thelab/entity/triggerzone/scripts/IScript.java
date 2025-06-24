@@ -1,7 +1,7 @@
 package fr.kayrouge.thelab.entity.triggerzone.scripts;
 
 import fr.kayrouge.thelab.TheLab;
-import fr.kayrouge.thelab.entity.triggerzone.TriggerZoneEntity;
+import fr.kayrouge.thelab.entity.triggerzone.TriggerZone;
 import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nullable;
@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public interface IScript {
 
-    void trigger(TriggerZoneEntity zone, Player player);
+    void trigger(TriggerZone zone, Player player);
 
     static IScript getScript(String script) {
         Class<? extends IScript> clazz = getClass(script);

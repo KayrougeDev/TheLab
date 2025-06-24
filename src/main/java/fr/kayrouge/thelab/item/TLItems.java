@@ -12,9 +12,10 @@ public class TLItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TheLab.MODID);
 
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", TLBlocks.EXAMPLE_BLOCK);
+    public static final DeferredItem<BlockItem> GHOST_BLOCK = ITEMS.registerSimpleBlockItem(TLBlocks.GHOST_BLOCK);
+    public static final DeferredItem<BlockItem> SWE_BLOCK = ITEMS.registerSimpleBlockItem(TLBlocks.SWE_BLOCK);
+    public static final DeferredItem<BlockItem> SWE_STAIR = ITEMS.registerSimpleBlockItem(TLBlocks.SWE_STAIR);
 
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    public static final DeferredItem<Item> CAMERA = ITEMS.registerItem("camera", Camera::new);
 
 }
