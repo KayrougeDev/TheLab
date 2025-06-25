@@ -4,7 +4,6 @@
   "package": "fr.kayrouge.thelab.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BlockMixin"
   ],
   "client": [
   ],
