@@ -31,7 +31,7 @@ public record SWEBlockEntityRenderer(BlockEntityRendererProvider.Context context
             return;
         }
 
-        context.getBlockRenderDispatcher().renderSingleBlock(sweBlockEntity.getBlockState(), poseStack, multiBufferSource, packedLight, OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.cutout());
+        context.getBlockRenderDispatcher().renderSingleBlock(Blocks.STONE.defaultBlockState(), poseStack, multiBufferSource, packedLight, OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.cutout());
 
 
     }

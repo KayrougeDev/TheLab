@@ -1,6 +1,7 @@
 package fr.kayrouge.thelab.tabs;
 
 import fr.kayrouge.thelab.TheLab;
+import fr.kayrouge.thelab.block.TLBlocks;
 import fr.kayrouge.thelab.item.TLItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -14,11 +15,22 @@ public class TLTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TheLab.MODID);
 
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.thelab")) //The language key for the title of your CreativeModeTab
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THE_LAB_ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.thelab.items")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> TLItems.CAMERA.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(TLItems.CAMERA.get());
+            }).build());
+
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THE_LAB_BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.thelab.blocks"))
+            .withTabsBefore(THE_LAB_ITEMS.getId())
+            .icon(() -> TLBlocks.EXAMPLE_BLOCK.asItem().getDefaultInstance())
+            .displayItems((parameters, output) -> {
+                output.accept(TLItems.HERE_ONLY_BLOCK.get());
+                output.accept(TLItems.SWE_BLOCK.get());
+                output.accept(TLItems.SWE_STAIR.get());
             }).build());
 }

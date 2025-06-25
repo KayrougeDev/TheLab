@@ -1,13 +1,20 @@
 {
-  "itemGroup.thelab": "Example Mod Tab",
-  "block.thelab.example_block": "Example Block",
-  "item.thelab.example_item": "Example Item",
+  "itemGroup.thelab.items": "The Lab: Items",
+  "itemGroup.thelab.blocks": "The Lab: Blocks",
+
+  "block.thelab.swe_block": "Somewhere Else Block",
+  "block.thelab.swe_stair": "Somewhere Else Stair",
+  "block.thelab.here_only_block": "Here Only Block",
+
+  "item.thelab.camera": "Camera",
+
+  "entity.thelab.trigger_zone": "Trigger Zone",
 
   "thelab.configuration.title": "The Lab Configs",
   "thelab.configuration.section.thelab.common.toml": "The Lab Configs",
   "thelab.configuration.section.thelab.common.toml.title": "The Lab Configs",
   "thelab.configuration.items": "Item List",
-  "thelab.configuration.logDirtBlock": "Log Dirt Block",
+  "thelab.configuration.disableShader": "Disable Shader",
   "thelab.configuration.magicNumberIntroduction": "Magic Number Text",
   "thelab.configuration.magicNumber": "Magic Number"
 }

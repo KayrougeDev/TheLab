@@ -1,9 +1,8 @@
 package fr.kayrouge.thelab.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import fr.kayrouge.thelab.block.entity.GhostBlockEntity;
+import fr.kayrouge.thelab.block.entity.HereOnlyBlockEntity;
 import fr.kayrouge.thelab.client.TheLabClient;
-import fr.kayrouge.thelab.client.utils.PlayerUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -14,10 +13,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public record GhostBlockEntityRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<GhostBlockEntity> {
+public record HereOnlyBlockEntityRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<HereOnlyBlockEntity> {
 
     @Override
-    public void render(@NotNull GhostBlockEntity ghostBlockEntity, float v, @NotNull PoseStack poseStack, @NotNull MultiBufferSource multiBufferSource, int packedLight, int packedOverlay) {
+    public void render(@NotNull HereOnlyBlockEntity ghostBlockEntity, float v, @NotNull PoseStack poseStack, @NotNull MultiBufferSource multiBufferSource, int packedLight, int packedOverlay) {
         BlockState state = ghostBlockEntity.getDisplayBlock();
         if (state == null || state.getBlock() == Blocks.AIR) {
             state = Blocks.STONE.defaultBlockState();
@@ -40,7 +39,7 @@ public record GhostBlockEntityRenderer(BlockEntityRendererProvider.Context conte
     }
 
     @Override
-    public boolean shouldRender(@NotNull GhostBlockEntity blockEntity, @NotNull Vec3 cameraPos) {
+    public boolean shouldRender(@NotNull HereOnlyBlockEntity blockEntity, @NotNull Vec3 cameraPos) {
         return !TheLabClient.useCamera;
     }
 }

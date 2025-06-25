@@ -1,7 +1,7 @@
 package fr.kayrouge.thelab.block.interdimensional.hereonly;
 
 import com.mojang.serialization.MapCodec;
-import fr.kayrouge.thelab.block.entity.GhostBlockEntity;
+import fr.kayrouge.thelab.block.entity.HereOnlyBlockEntity;
 import fr.kayrouge.thelab.block.interdimensional.swe.InterdimensionalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -13,22 +13,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class GhostBlock extends Block implements InterdimensionalBlock {
+public class HereOnlyBlock extends Block implements InterdimensionalBlock {
 
-    public static final MapCodec<GhostBlock> CODEC = simpleCodec(GhostBlock::new);
+    public static final MapCodec<HereOnlyBlock> CODEC = simpleCodec(HereOnlyBlock::new);
 
-    public GhostBlock(BlockBehaviour.Properties properties) {
+    public HereOnlyBlock(BlockBehaviour.Properties properties) {
         super(InterdimensionalBlock.applyProperty(properties));
     }
 
     @Override
-    protected @NotNull MapCodec<GhostBlock> codec() {
+    protected @NotNull MapCodec<HereOnlyBlock> codec() {
         return CODEC;
     }
 
     @Override
     public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        return new GhostBlockEntity(blockPos, blockState);
+        return new HereOnlyBlockEntity(blockPos, blockState);
     }
 
     @Override

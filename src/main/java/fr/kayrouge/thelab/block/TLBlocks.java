@@ -1,7 +1,7 @@
 package fr.kayrouge.thelab.block;
 
 import fr.kayrouge.thelab.TheLab;
-import fr.kayrouge.thelab.block.interdimensional.hereonly.GhostBlock;
+import fr.kayrouge.thelab.block.interdimensional.hereonly.HereOnlyBlock;
 import fr.kayrouge.thelab.block.interdimensional.swe.SWEBlock;
 import fr.kayrouge.thelab.block.interdimensional.swe.SWEStair;
 import net.minecraft.world.level.block.Block;
@@ -16,7 +16,7 @@ public class TLBlocks {
 
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<GhostBlock> GHOST_BLOCK = BLOCKS.registerBlock("ghost_block", GhostBlock::new);
+    public static final DeferredBlock<HereOnlyBlock> HERE_ONLY_BLOCK = BLOCKS.registerBlock("here_only_block", HereOnlyBlock::new);
     public static final DeferredBlock<SWEBlock> SWE_BLOCK = BLOCKS.registerBlock("swe_block", SWEBlock::new);
     public static final DeferredBlock<SWEStair> SWE_STAIR = BLOCKS.registerBlock("swe_stair", SWEStair::new);
 

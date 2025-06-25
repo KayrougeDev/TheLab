@@ -18,12 +18,12 @@ import org.jetbrains.annotations.Nullable;
 
 @Setter
 @Getter
-public class GhostBlockEntity extends BlockEntity {
+public class HereOnlyBlockEntity extends BlockEntity {
 
     private BlockState displayBlock = Blocks.STONE.defaultBlockState();
 
-    public GhostBlockEntity(BlockPos pos, BlockState blockState) {
-        super(TLBlockEntityTypes.GHOST_BLOCK_ENTITY.get(), pos, blockState);
+    public HereOnlyBlockEntity(BlockPos pos, BlockState blockState) {
+        super(TLBlockEntityTypes.HERE_ONLY_BLOCK_ENTITY.get(), pos, blockState);
     }
 
     @Override
