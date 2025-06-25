@@ -32,19 +32,19 @@ public class HereOnlyBlockEntity extends BlockEntity {
     }
 
     @Override
-    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
-        CompoundTag tag = new CompoundTag();
-
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.saveAdditional(tag, registries);
         tag.put("displayBlock", NbtUtils.writeBlockState(displayBlock));
-
-        saveAdditional(tag, registries);
-        return tag;
     }
 
     @Override
-    public void handleUpdateTag(CompoundTag tag, HolderLookup.@NotNull Provider lookupProvider) {
-        this.displayBlock = NbtUtils.readBlockState(BuiltInRegistries.BLOCK.asLookup(), (CompoundTag) tag.getCompound("displayBlock"));
-        super.handleUpdateTag(tag, lookupProvider);
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.loadAdditional(tag, registries);
+        this.displayBlock = NbtUtils.readBlockState(BuiltInRegistries.BLOCK.asLookup(), tag.getCompound("displayBlock"));
     }
 
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
+        return saveWithoutMetadata(registries);
+    }
 }
