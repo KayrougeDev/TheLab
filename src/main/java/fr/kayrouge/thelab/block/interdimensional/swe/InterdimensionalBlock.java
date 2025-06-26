@@ -21,9 +21,8 @@ public interface InterdimensionalBlock extends EntityBlock {
     }
 
     static VoxelShape getCollisionShape(InterdimensionalBlock inter, CollisionContext context, VoxelShape defaultShape) {
-        Optional<Item> op = TLItems.CAMERA.asOptional();
-        if(op.isEmpty() || !(context instanceof EntityCollisionContext entityCollisionContext) || !(entityCollisionContext.getEntity() instanceof Player player)) return defaultShape;
-        boolean holdCam = player.isHolding(op.get());
+        if(!(context instanceof EntityCollisionContext entityCollisionContext) || !(entityCollisionContext.getEntity() instanceof Player player)) return defaultShape;
+        boolean holdCam = player.isHolding(TLItems.CAMERA.get());
         if((holdCam && inter.visibleByDefault()) || (!holdCam && !inter.visibleByDefault())) {
             return Shapes.empty();
         }
