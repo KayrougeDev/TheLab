@@ -1,6 +1,7 @@
 package fr.kayrouge.thelab.block.interdimensional.swe;
 
 import fr.kayrouge.thelab.block.entity.SWEBlockEntity;
+import fr.kayrouge.thelab.block.interdimensional.InterdimensionalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;

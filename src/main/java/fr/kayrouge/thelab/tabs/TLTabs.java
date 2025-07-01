@@ -32,5 +32,6 @@ public class TLTabs {
                 output.accept(TLItems.HERE_ONLY_BLOCK.get());
                 output.accept(TLItems.SWE_BLOCK.get());
                 output.accept(TLItems.SWE_STAIR.get());
+                output.accept(TLItems.ON_GROUND_ITEM_HOLDER.get());
             }).build());
 }

@@ -18,17 +18,12 @@ import org.jetbrains.annotations.Nullable;
 
 @Setter
 @Getter
-public class HereOnlyBlockEntity extends BlockEntity {
+public class HereOnlyBlockEntity extends SimpleBlockEntity {
 
     private BlockState displayBlock = Blocks.STONE.defaultBlockState();
 
     public HereOnlyBlockEntity(BlockPos pos, BlockState blockState) {
         super(TLBlockEntityTypes.HERE_ONLY_BLOCK_ENTITY.get(), pos, blockState);
-    }
-
-    @Override
-    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
@@ -43,8 +38,4 @@ public class HereOnlyBlockEntity extends BlockEntity {
         this.displayBlock = NbtUtils.readBlockState(BuiltInRegistries.BLOCK.asLookup(), tag.getCompound("displayBlock"));
     }
 
-    @Override
-    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
-        return saveWithoutMetadata(registries);
-    }
 }

@@ -20,4 +20,10 @@ public class TLBlockEntityTypes {
                     TLBlocks.SWE_STAIR.get(), TLBlocks.SWE_BLOCK.get()
             ).build(null)
     );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<OnGroundItemHolderBlockEntity>> ON_GROUND_ITEM_HOLDER = BLOCK_ENTITY_TYPES.register(
+            "on_ground_item_holder", () -> BlockEntityType.Builder.of(OnGroundItemHolderBlockEntity::new,
+                    TLBlocks.ON_GROUND_ITEM_HOLDER.get()
+            ).build(null)
+    );
 }

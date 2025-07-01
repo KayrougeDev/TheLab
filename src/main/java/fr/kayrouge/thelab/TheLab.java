@@ -1,11 +1,13 @@
 package fr.kayrouge.thelab;
 
+import fr.kayrouge.thelab.block.OnGroundItemHolder;
 import fr.kayrouge.thelab.block.TLBlocks;
 import fr.kayrouge.thelab.block.entity.TLBlockEntityTypes;
 import fr.kayrouge.thelab.entity.TLEntities;
 import fr.kayrouge.thelab.item.TLItems;
 import fr.kayrouge.thelab.tabs.TLTabs;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -13,7 +15,6 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod(TheLab.MODID)
@@ -31,7 +32,7 @@ public class TheLab {
         TLTabs.TABS.register(modEventBus);
         TLEntities.ENTITIES.register(modEventBus);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        NeoForge.EVENT_BUS.register(new OnGroundItemHolder.Event());
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

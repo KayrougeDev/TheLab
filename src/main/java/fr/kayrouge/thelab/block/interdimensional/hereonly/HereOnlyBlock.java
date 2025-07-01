@@ -3,7 +3,7 @@ package fr.kayrouge.thelab.block.interdimensional.hereonly;
 import com.mojang.serialization.MapCodec;
 import fr.kayrouge.thelab.block.TLBlocks;
 import fr.kayrouge.thelab.block.entity.HereOnlyBlockEntity;
-import fr.kayrouge.thelab.block.interdimensional.swe.InterdimensionalBlock;
+import fr.kayrouge.thelab.block.interdimensional.InterdimensionalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
