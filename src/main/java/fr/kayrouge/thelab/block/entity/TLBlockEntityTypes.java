@@ -26,4 +26,10 @@ public class TLBlockEntityTypes {
                     TLBlocks.ON_GROUND_ITEM_HOLDER.get()
             ).build(null)
     );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TestBlockEntity>> TEST = BLOCK_ENTITY_TYPES.register(
+            "test", () -> BlockEntityType.Builder.of(TestBlockEntity::new,
+                    TLBlocks.TEST.get()
+            ).build(null)
+    );
 }

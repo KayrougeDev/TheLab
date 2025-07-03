@@ -15,7 +15,9 @@
   "thelab.configuration.section.thelab.common.toml": "The Lab Configs",
   "thelab.configuration.section.thelab.common.toml.title": "The Lab Configs",
   "thelab.configuration.items": "Item List",
-  "thelab.configuration.disableShader": "Disable Shader",
+  "thelab.configuration.disableShaders": "Disable Shaders",
   "thelab.configuration.magicNumberIntroduction": "Magic Number Text",
-  "thelab.configuration.magicNumber": "Magic Number"
+  "thelab.configuration.magicNumber": "Magic Number",
+
+  "key.categories.wave": "Wave"
 }

@@ -26,7 +26,7 @@ public class OnGroundItemHolder extends BaseEntityBlock {
 
     public static final MapCodec<OnGroundItemHolder> CODEC = simpleCodec(OnGroundItemHolder::new);
 
-    protected OnGroundItemHolder(Properties properties) {
+    public OnGroundItemHolder(Properties properties) {
         super(properties.noCollission().offsetType(OffsetType.XZ).noOcclusion().isValidSpawn(Blocks::never)
                 .isRedstoneConductor(TLBlocks::never).isSuffocating(TLBlocks::never).isViewBlocking(TLBlocks::never));
     }

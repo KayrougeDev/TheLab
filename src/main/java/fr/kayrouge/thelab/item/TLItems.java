@@ -16,6 +16,7 @@ public class TLItems {
     public static final DeferredItem<BlockItem> SWE_BLOCK = ITEMS.registerSimpleBlockItem(TLBlocks.SWE_BLOCK);
     public static final DeferredItem<BlockItem> SWE_STAIR = ITEMS.registerSimpleBlockItem(TLBlocks.SWE_STAIR);
     public static final DeferredItem<BlockItem> ON_GROUND_ITEM_HOLDER = ITEMS.registerSimpleBlockItem(TLBlocks.ON_GROUND_ITEM_HOLDER);
+    public static final DeferredItem<BlockItem> TEST_BLOCK = ITEMS.registerSimpleBlockItem(TLBlocks.TEST);
 
     public static final DeferredItem<Item> CAMERA = ITEMS.registerItem("camera", Camera::new);
     public static final DeferredItem<Item> ON_GROUND_ITEM_DEFAULT = ITEMS.registerSimpleItem("on_ground_item_default");

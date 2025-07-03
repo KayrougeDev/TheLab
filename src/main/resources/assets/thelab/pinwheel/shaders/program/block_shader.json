@@ -1,0 +1,4 @@
+{
+  "vertex": "thelab:block_shader/blockver",
+  "fragment": "thelab:block_shader/blockfrag"
+}

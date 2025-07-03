@@ -23,6 +23,7 @@ public class TLBlocks {
     public static final DeferredBlock<SWEBlock> SWE_BLOCK = BLOCKS.registerBlock("swe_block", SWEBlock::new);
     public static final DeferredBlock<SWEStair> SWE_STAIR = BLOCKS.registerBlock("swe_stair", SWEStair::new);
     public static final DeferredBlock<OnGroundItemHolder> ON_GROUND_ITEM_HOLDER = BLOCKS.registerBlock("on_ground_item_holder", OnGroundItemHolder::new);
+    public static final DeferredBlock<TestBlock> TEST = BLOCKS.registerBlock("test", TestBlock::new);
 
     public static boolean never(BlockState state, BlockGetter blockGetter, BlockPos pos) {
         return false;
