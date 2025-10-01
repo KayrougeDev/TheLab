@@ -17,7 +17,6 @@ public class TLTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THE_LAB_ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.thelab.items")) //The language key for the title of your CreativeModeTab
-            .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> TLItems.CAMERA.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(TLItems.CAMERA.get());
@@ -27,7 +26,7 @@ public class TLTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THE_LAB_BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.thelab.blocks"))
             .withTabsBefore(THE_LAB_ITEMS.getId())
-            .icon(() -> TLBlocks.EXAMPLE_BLOCK.asItem().getDefaultInstance())
+            .icon(() -> TLBlocks.SWE_BLOCK.asItem().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(TLItems.HERE_ONLY_BLOCK.get());
                 output.accept(TLItems.SWE_BLOCK.get());

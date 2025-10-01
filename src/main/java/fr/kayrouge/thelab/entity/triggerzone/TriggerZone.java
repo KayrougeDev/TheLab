@@ -1,9 +1,11 @@
 package fr.kayrouge.thelab.entity.triggerzone;
 
+import fr.kayrouge.thelab.TheLab;
 import fr.kayrouge.thelab.entity.triggerzone.scripts.IScript;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,6 +30,9 @@ public class TriggerZone extends Entity {
     private int updateDelay = 5;
 
     private int tickCounter = 0;
+
+    @Nullable
+    private IScript loadedScript = null;
 
     public TriggerZone(EntityType<?> entityType, Level level) {
         this(entityType, level, 2, 2, 1);
@@ -55,6 +61,8 @@ public class TriggerZone extends Entity {
         this.isScriptCommand = tag.getBoolean("isCommand");
 
         this.updateDelay = tag.getInt("updateDelay");
+
+        updateScript();
     }
     @Override
     protected AABB makeBoundingBox() {
@@ -93,6 +101,8 @@ public class TriggerZone extends Entity {
         tag.putBoolean("isCommand", this.isScriptCommand);
 
         tag.putInt("updateDelay", this.updateDelay);
+
+        updateScript();
     }
 
     public void trigger(Player player) {
@@ -100,10 +110,18 @@ public class TriggerZone extends Entity {
             // TODO command
         }
         else {
-            IScript iScript = IScript.getScript(this.script);
-            if(iScript != null) {
-                iScript.trigger(this, player);
+            if(this.loadedScript != null) {
+                this.loadedScript.trigger(this, player);
+            } else {
+                TheLab.LOGGER.warn("No script defined for TriggerZone {} at {}", this.getUUID(),  this.blockPosition().toShortString());
             }
         }
     }
+
+    private void updateScript() {
+        if(this.isScriptCommand) return;
+
+        this.loadedScript = IScript.getScript(this.script);
+    }
+
 }

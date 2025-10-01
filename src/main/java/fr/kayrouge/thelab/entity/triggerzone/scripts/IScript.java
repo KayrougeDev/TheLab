@@ -11,13 +11,14 @@ public interface IScript {
 
     void trigger(TriggerZone zone, Player player);
 
+    @Nullable
     static IScript getScript(String script) {
         Class<? extends IScript> clazz = getClass(script);
         if(clazz == null) return null;
         try {
             return clazz.getDeclaredConstructor().newInstance();
         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ignored) {
-            TheLab.LOGGER.warn("Can't instantiate script '{}', script class should NOT have a constructor with parameters or be private", script);
+            TheLab.LOGGER.error("Can't instantiate script '{}', script class should NOT have a constructor with parameters or be private", script);
             return null;
         }
     }
